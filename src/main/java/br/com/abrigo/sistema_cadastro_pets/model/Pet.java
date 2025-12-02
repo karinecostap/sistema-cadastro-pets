@@ -19,7 +19,7 @@ public class Pet {
     @Embedded
     private Endereco endereco;
 
-    private String nomePet;
+    private String nome;
     private double idade;
 
     @Enumerated(EnumType.STRING)
