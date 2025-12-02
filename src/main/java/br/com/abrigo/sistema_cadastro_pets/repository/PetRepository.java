@@ -1,0 +1,21 @@
+package br.com.abrigo.sistema_cadastro_pets.repository;
+
+import br.com.abrigo.sistema_cadastro_pets.model.Pet;
+import br.com.abrigo.sistema_cadastro_pets.model.SexoPet;
+import br.com.abrigo.sistema_cadastro_pets.model.TipoPet;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+import java.util.UUID;
+
+public interface PetRepository extends JpaRepository<Pet, UUID> {
+
+    List<Pet> findByNomePetContainingIgnoreCase(String nomePet);
+    List<Pet> findByRacaContainingIgnoreCase(String raca);
+    List<Pet> findByPeso(double peso);
+    List<Pet> findByIdade(double idade);
+    List<Pet> findBySexoPet(SexoPet sexoPet);
+    List<Pet> findByTipoPet(TipoPet tipoPet);
+    List<Pet> findByNomePetContainingIgnoreCaseAndIdade(String nomePet, double idade);
+    List<Pet> findByIdadeAndPeso(double idade, double peso);
+}
