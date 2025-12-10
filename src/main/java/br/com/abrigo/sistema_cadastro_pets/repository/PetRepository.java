@@ -12,12 +12,13 @@ import java.util.UUID;
 @Repository
 public interface PetRepository extends JpaRepository<Pet, UUID> {
 
-    List<Pet> findByNomePetContainingIgnoreCase(String nomePet);
+    List<Pet> findByNomeContainingIgnoreCase(String nome);
     List<Pet> findByRacaContainingIgnoreCase(String raca);
     List<Pet> findByPeso(double peso);
     List<Pet> findByIdade(double idade);
     List<Pet> findBySexoPet(SexoPet sexoPet);
     List<Pet> findByTipoPet(TipoPet tipoPet);
-    List<Pet> findByNomePetContainingIgnoreCaseAndIdade(String nomePet, double idade);
+    List<Pet> findByNomeContainingIgnoreCaseAndIdade(String nome, double idade);
     List<Pet> findByIdadeAndPeso(double idade, double peso);
+
 }

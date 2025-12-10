@@ -1,5 +1,7 @@
 package br.com.abrigo.sistema_cadastro_pets.dto;
 
+import br.com.abrigo.sistema_cadastro_pets.model.SexoPet;
+import br.com.abrigo.sistema_cadastro_pets.model.TipoPet;
 import jakarta.persistence.Embedded;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
@@ -20,10 +22,10 @@ public class PetCadastroDTO {
     private double idade;
 
     @NotNull(message = "O sexo do Pet é obrigatório.")
-    private String sexoPet;
+    private SexoPet sexoPet;
 
     @NotNull(message = "O tipo do Pet é obrigatório.")
-    private String tipoPet;
+    private TipoPet tipoPet;
 
     @DecimalMin(value = "0.5", message = "O peso deve ser maior que 0.5kg")
     @DecimalMax(value = "60", message = "O peso deve ser menor que 60kg")
@@ -32,9 +34,5 @@ public class PetCadastroDTO {
     @Pattern(regexp = "^[a-zA-Z\\s]+$", message = "O campo deve conter apenas letras e espaços, sem caracteres especiais.")
     private String raca;
 
-    @Valid
-    @NotNull
-    @Embedded
-    private EnderecoDTO endereco;
 
 }
