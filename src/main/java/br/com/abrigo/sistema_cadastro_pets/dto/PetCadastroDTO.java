@@ -2,8 +2,6 @@ package br.com.abrigo.sistema_cadastro_pets.dto;
 
 import br.com.abrigo.sistema_cadastro_pets.model.SexoPet;
 import br.com.abrigo.sistema_cadastro_pets.model.TipoPet;
-import jakarta.persistence.Embedded;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
