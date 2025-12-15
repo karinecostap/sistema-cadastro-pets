@@ -43,7 +43,7 @@ public class PetService {
         return petRepository.findByNomeContainingIgnoreCase(nome);
     }
 
-    public List<Pet> listarTodosPets(List<Pet> pets) {
+    public List<Pet> listarTodosPets() {
         return petRepository.findAll();
     }
 
@@ -52,4 +52,3 @@ public class PetService {
         return petRepository.save(pet);
     }
 }
-

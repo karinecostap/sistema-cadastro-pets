@@ -1,11 +1,14 @@
 package br.com.abrigo.sistema_cadastro_pets.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
-
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
 @Data
@@ -29,6 +32,4 @@ public class Pet {
 
     @CreationTimestamp
     private LocalDateTime createdAt;
-
-
 }
