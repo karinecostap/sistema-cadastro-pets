@@ -2,6 +2,8 @@ package br.com.abrigo.sistema_cadastro_pets.service;
 
 import br.com.abrigo.sistema_cadastro_pets.dto.PetCadastroDTO;
 import br.com.abrigo.sistema_cadastro_pets.model.Pet;
+import br.com.abrigo.sistema_cadastro_pets.model.SexoPet;
+import br.com.abrigo.sistema_cadastro_pets.model.TipoPet;
 import br.com.abrigo.sistema_cadastro_pets.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,11 +17,11 @@ public class PetService {
     private PetRepository petRepository;
 
     public Pet cadastrarPet(PetCadastroDTO petCadastroDTO) {
-            String nomeFormatado = petCadastroDTO.getNome().toLowerCase();
-            Pet exists = this.petRepository.findByNome(nomeFormatado);
-            if (exists != null) {
-                throw new RuntimeException("Pet já cadastrado");
-            }
+        String nomeFormatado = petCadastroDTO.getNome().toLowerCase();
+        Pet exists = this.petRepository.findByNome(nomeFormatado);
+        if (exists != null) {
+            throw new RuntimeException("Pet já cadastrado");
+        }
         Pet pet = petMapper(petCadastroDTO);
         return petRepository.save(pet);
     }
@@ -50,5 +52,10 @@ public class PetService {
     public Pet atualizarPet(PetCadastroDTO petCadastroDTO) {
         Pet pet = petMapper(petCadastroDTO);
         return petRepository.save(pet);
+    }
+
+    public List<Pet> filtrarPets(String nome, Double idade, Double peso, String raca, SexoPet sexo, TipoPet tipo) {
+
+        return petRepository.buscarComFiltros(nome, idade, peso, raca, sexo, tipo);
     }
 }
