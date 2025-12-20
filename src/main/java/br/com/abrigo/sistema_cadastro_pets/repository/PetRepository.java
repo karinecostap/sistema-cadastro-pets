@@ -16,13 +16,6 @@ public interface PetRepository extends JpaRepository<Pet, Integer>{
 
     List<Pet> findByNomeContainingIgnoreCase(String nome);
     Pet findByNome(String nome);
-//    List<Pet> findByRacaContainingIgnoreCase(String raca);
-//    List<Pet> findByPeso(double peso);
-//    List<Pet> findByIdade(double idade);
-//    List<Pet> findBySexoPet(SexoPet sexoPet);
-//    List<Pet> findByTipoPet(TipoPet tipoPet);
-//    List<Pet> findByNomeContainingIgnoreCaseAndIdade(String nome, double idade);
-//    List<Pet> findByIdadeAndPeso(double idade, double peso);
 
     @Query("SELECT p FROM Pet p WHERE " +
             "(:nome IS NULL OR p.nome = :nome) AND " +
@@ -39,5 +32,4 @@ public interface PetRepository extends JpaRepository<Pet, Integer>{
             @Param("sexo") SexoPet sexo,
             @Param("tipo") TipoPet tipo
     );
-
 }

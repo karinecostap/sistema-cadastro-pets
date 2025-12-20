@@ -59,7 +59,6 @@ public class PetController {
             @RequestParam(required = false) TipoPet tipo
     ) {
         try {
-            //todo - colocar um dto na frente pra evitar coisas invaldas
             List<Pet> pets = petService.filtrarPets(nome, idade, peso, raca, sexo, tipo);
             return ResponseEntity.ok(pets);
         } catch (Exception e) {
@@ -86,4 +85,10 @@ public class PetController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-}
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void>delete(@PathVariable Integer id){
+        petService.deletarPet(id);
+        return ResponseEntity.noContent().build();
+        }
+    }
