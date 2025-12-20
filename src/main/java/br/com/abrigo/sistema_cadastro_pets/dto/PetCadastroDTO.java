@@ -35,6 +35,4 @@ public class PetCadastroDTO {
 
     @Pattern(regexp = "^[a-zA-Z\\s]+$", message = "O campo deve conter apenas letras e espaços, sem caracteres especiais.")
     private String raca;
-
-
 }

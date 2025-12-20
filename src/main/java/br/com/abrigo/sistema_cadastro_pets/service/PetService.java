@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PetService {
@@ -57,5 +58,11 @@ public class PetService {
     public List<Pet> filtrarPets(String nome, Double idade, Double peso, String raca, SexoPet sexo, TipoPet tipo) {
 
         return petRepository.buscarComFiltros(nome, idade, peso, raca, sexo, tipo);
+    }
+
+    public void deletarPet(Integer id){
+        Pet petEncontrado = petRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Pet não encontrado com ID: " + id));
+        petRepository.delete(petEncontrado);
     }
 }
