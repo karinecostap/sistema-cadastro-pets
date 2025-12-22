@@ -25,7 +25,7 @@ public class Adotante {
     @NotBlank
     private String telefone;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
 
