@@ -5,7 +5,24 @@
 
 ### requisitos ###
 ## Parte 1 ##
-Você vai escrever o que já foi tudo feito.
+[ ] Gerar projeto (Spring Initializr)
+
+[ ] Configurar banco de dados (Docker Compose)
+
+[ ] Criar Entidade Pet (JPA e Validation)
+
+[ ] Criar Enums
+
+[ ] Criar PetRepository
+
+[ ] Criar métodos customizados de busca
+
+[ ] Lógica de Cadastro (Validações)
+
+[ ] Lógica de Busca e Filtro 
+
+[ ] Implementar Endpoints (POST, GET, PUT, DELETE)
+
 
 ## Parte 2 ##
 [ ] Você deverá implementar a funcionalidade de MIGRATIONS No banco de dados, para isso, você deve usar alguma ferramenta de migrations a sua escolha.
