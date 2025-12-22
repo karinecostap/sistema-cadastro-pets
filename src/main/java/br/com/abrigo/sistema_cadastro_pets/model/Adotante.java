@@ -3,6 +3,9 @@ package br.com.abrigo.sistema_cadastro_pets.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "adotante")
@@ -26,5 +29,6 @@ public class Adotante {
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
 
-
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 }
