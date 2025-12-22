@@ -35,7 +35,7 @@
 
 [ ] Implementar a entidade Adotante com base na migrations
 
-[ ] Implementar a entidade ContatoEEndereco que deverá ser associada a entidade Adotante, ou seja, todo adotante, tem um ContatoEEndereco associado, crie as validações necessarias.
+[ ] Implementar a entidade Endereco que deverá ser associada a entidade Adotante, ou seja, todo adotante, tem um Endereco associado, crie as validações necessarias.
 
 [ ] EXTRA -> Pedir somente o CEP e o numero da casa para preencher alguns campos de campo endereço, procurar como consumir API usando FeignClient
  
