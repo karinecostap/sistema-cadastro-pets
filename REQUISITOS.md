@@ -25,13 +25,13 @@
 
 
 ## Parte 2 ##
-[ ] Você deverá implementar a funcionalidade de MIGRATIONS No banco de dados, para isso, você deve usar alguma ferramenta de migrations a sua escolha.
+[x] Você deverá implementar a funcionalidade de MIGRATIONS no banco de dados, para isso, você deve usar alguma ferramenta de migrations a sua escolha (ex: Flyway ou Liquibase).
 
-[ ] Você deverá nas migrations, colocar pelo menos 3 entidades de cada de teste, com nomeclaturas de teste, exemplo testPet1 - testPet2 - testPet3 - PARA CADA ENTIDADE
+[x] Voce deverá garantir que todos os scripts SQL estejam organizados em um diretório chamado /migrations, ou seja, todas as relações de banco de dados e querys executadas, com isso, você deverá criar cada uma delas para cada entidade.
 
-[ ] Devera haver um diretório chamado /migrations, com todas as relações de banco de dados e querys executadas, com isso, você deverá criar cada uma delas para cada entidade.
+[x] Você deverá criar migrations específicas para popular o banco com 3 registros de teste para cada entidade (ex: testPet1, testPet2, testPet3)
 
-[ ] Implementar o CRUD básico de Pets com base na migrations
+[x] Implementar o CRUD completo (Create, Read, Update, Delete) seguindo a estrutura definida nas migrations.
 
 [ ] Implementar a entidade Adotante com base na migrations
 
