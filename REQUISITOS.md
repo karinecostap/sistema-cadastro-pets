@@ -5,23 +5,23 @@
 
 ### requisitos ###
 ## Parte 1 ##
-[ ] Gerar projeto (Spring Initializr)
+[x] Gerar projeto (Spring Initializr)
 
-[ ] Configurar banco de dados (Docker Compose)
+[x] Configurar banco de dados (Docker Compose)
 
-[ ] Criar Entidade Pet (JPA e Validation)
+[x] Criar Entidade Pet (JPA e Validation)
 
-[ ] Criar Enums
+[x] Criar Enums
 
-[ ] Criar PetRepository
+[x] Criar PetRepository
 
-[ ] Criar métodos customizados de busca
+[x] Criar métodos customizados de busca
 
-[ ] Lógica de Cadastro (Validações)
+[x] Lógica de Cadastro (Validações)
 
-[ ] Lógica de Busca e Filtro 
+[x] Lógica de Busca e Filtro 
 
-[ ] Implementar Endpoints (POST, GET, PUT, DELETE)
+[x] Implementar Endpoints (POST, GET, PUT, DELETE)
 
 
 ## Parte 2 ##
@@ -33,9 +33,11 @@
 
 [x] Implementar o CRUD completo (Create, Read, Update, Delete) seguindo a estrutura definida nas migrations.
 
-[ ] Implementar a entidade Adotante com base na migrations
+[x] Implementar a entidade Adotante com base na migrations
 
-[ ] Implementar a entidade Endereco que deverá ser associada a entidade Adotante, ou seja, todo adotante, tem um Endereco associado, crie as validações necessarias.
+[x] Implementar a entidade Endereco que deverá ser associada a entidade Adotante, ou seja, todo adotante, tem um Endereco associado, crie as validações necessarias.
+
+[ ] Criar os Repositories e DTO's para Endereco e Adotante
 
 [ ] EXTRA -> Pedir somente o CEP e o numero da casa para preencher alguns campos de campo endereço, procurar como consumir API usando FeignClient
  
