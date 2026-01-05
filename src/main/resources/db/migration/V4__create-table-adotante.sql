@@ -1,0 +1,9 @@
+CREATE TABLE adotante(
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR (100) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    endereco_id INTEGER NOT NULL,
+    CONSTRAINT fk_endereco FOREIGN KEY (endereco_id) REFERENCES endereco(id),
+    created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
