@@ -37,9 +37,9 @@
 
 [x] Implementar a entidade Endereco que deverá ser associada a entidade Adotante, ou seja, todo adotante, tem um Endereco associado, crie as validações necessarias.
 
-[ ] Criar os Repositories e DTO's para Endereco e Adotante
+[x] Criar os Repositories e DTO's para Endereco e Adotante
 
-[ ] EXTRA -> Pedir somente o CEP e o numero da casa para preencher alguns campos de campo endereço, procurar como consumir API usando FeignClient
+[x] EXTRA -> Pedir somente o CEP e o numero da casa para preencher alguns campos de campo endereço, procurar como consumir API usando FeignClient
  
 ## Parte 3 ##
 [ ] Você deverá usar o POSTMAN, criando uma collection + environment com todos os endpoints utilizados na aplicação. 

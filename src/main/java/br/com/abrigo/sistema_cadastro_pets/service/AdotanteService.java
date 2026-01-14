@@ -1,7 +1,9 @@
 package br.com.abrigo.sistema_cadastro_pets.service;
 
+import br.com.abrigo.sistema_cadastro_pets.client.ViaCepClient;
 import br.com.abrigo.sistema_cadastro_pets.dto.AdotanteCadastroDTO;
 import br.com.abrigo.sistema_cadastro_pets.dto.EnderecoDTO;
+import br.com.abrigo.sistema_cadastro_pets.dto.ViaCepDTO;
 import br.com.abrigo.sistema_cadastro_pets.model.Adotante;
 import br.com.abrigo.sistema_cadastro_pets.model.Endereco;
 import br.com.abrigo.sistema_cadastro_pets.repository.AdotanteRepository;
@@ -17,6 +19,9 @@ public class AdotanteService {
 
     @Autowired
     private EnderecoRepository enderecoRepository;
+
+    @Autowired
+    private ViaCepClient viaCepClient;
 
     public Adotante cadastrarAdotante(AdotanteCadastroDTO adotanteCadastroDTO) throws Exception {
         adotanteExiste(adotanteCadastroDTO.getNome());
@@ -38,19 +43,20 @@ public class AdotanteService {
         return enderecoRepository
                 .findByCepAndNumero(enderecoDTO.getCep(), enderecoDTO.getNumero())
                 .orElseGet(() -> {
-                    Endereco novoEndereco = enderecoMapper(enderecoDTO);
+                    ViaCepDTO dadosEndereco = viaCepClient.buscarEnderecoPorCep(enderecoDTO.getCep());
+                    Endereco novoEndereco = enderecoMapper(dadosEndereco, enderecoDTO.getNumero());
                     return enderecoRepository.save(novoEndereco);
                 });
     }
 
-    private Endereco enderecoMapper(EnderecoDTO enderecoDTO) {
+    private Endereco enderecoMapper(ViaCepDTO dadosEndereco, String numeroCasa) {
         Endereco endereco = new Endereco();
-        endereco.setCep(enderecoDTO.getCep());
-        endereco.setLogradouro(enderecoDTO.getRua());
-        endereco.setNumero(enderecoDTO.getNumero());
-        endereco.setBairro(enderecoDTO.getBairro());
-        endereco.setCidade(enderecoDTO.getCidade());
-        endereco.setUf(enderecoDTO.getEstado());
+        endereco.setCep(dadosEndereco.cep());
+        endereco.setLogradouro(dadosEndereco.logradouro());
+        endereco.setBairro(dadosEndereco.bairro());
+        endereco.setCidade(dadosEndereco.localidade());
+        endereco.setUf(dadosEndereco.uf());
+        endereco.setNumero(numeroCasa.toString());
         return endereco;
     }
 

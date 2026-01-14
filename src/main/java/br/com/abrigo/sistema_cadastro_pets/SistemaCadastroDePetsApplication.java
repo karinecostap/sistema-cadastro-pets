@@ -2,8 +2,10 @@ package br.com.abrigo.sistema_cadastro_pets;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
+@EnableFeignClients
 public class SistemaCadastroDePetsApplication {
 
 	public static void main(String[] args) {
