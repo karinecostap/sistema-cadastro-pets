@@ -5,6 +5,7 @@ import br.com.abrigo.sistema_cadastro_pets.model.Pet;
 import br.com.abrigo.sistema_cadastro_pets.model.SexoPet;
 import br.com.abrigo.sistema_cadastro_pets.model.TipoPet;
 import br.com.abrigo.sistema_cadastro_pets.repository.PetRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,19 +13,26 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class PetService {
 
     @Autowired
     private PetRepository petRepository;
 
     public Pet cadastrarPet(PetCadastroDTO petCadastroDTO) {
-        String nomeFormatado = petCadastroDTO.getNome().toLowerCase();
-        Pet exists = this.petRepository.findByNome(nomeFormatado);
-        if (exists != null) {
-            throw new RuntimeException("Pet já cadastrado");
+        log.info("Iniciando cadastro de pet");
+        try {
+            String nomeFormatado = petCadastroDTO.getNome().toLowerCase();
+            Pet exists = this.petRepository.findByNome(nomeFormatado);
+            if (exists != null) {
+                throw new RuntimeException("Pet já cadastrado");
+            }
+            Pet pet = petMapper(petCadastroDTO);
+            return petRepository.save(pet);
+        } catch (Exception e) {
+            log.error("Erro ao cadastrar novo pet");
+            throw e;
         }
-        Pet pet = petMapper(petCadastroDTO);
-        return petRepository.save(pet);
     }
 
     private Pet petMapper(PetCadastroDTO petCadastroDTO) {

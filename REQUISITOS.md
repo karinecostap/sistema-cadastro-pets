@@ -42,7 +42,9 @@
 [x] EXTRA -> Pedir somente o CEP e o numero da casa para preencher alguns campos de campo endereço, procurar como consumir API usando FeignClient
  
 ## Parte 3 ##
-[ ] Você deverá usar o POSTMAN, criando uma collection + environment com todos os endpoints utilizados na aplicação. 
+[x] Você deverá usar o POSTMAN, criando uma collection + environment com todos os endpoints utilizados na aplicação. 
+
+[x] Você deverá implementar a funcionalidade de LOGS, utilizando o SLF4J, do Lombok.
 
 [ ] Você deverá implementar a funcionalidade de DOCUMENTAÇÃO, utilizando o Swagger URL: http://localhost:8080/swagger-ui.html site do swagger: https://swagger.io/
 
@@ -53,7 +55,4 @@
 
 ## Parte 5 ##
 [ ] Você deverá implementar os testes de integração na aplicação, ou seja, deverá executar a aplicação e verificar se os endpoints estão funcionando corretamente, rodando uma SEQUENCIA DE CHAMADAS.
-
-## Parte 6 ##
-[ ] Você deverá implementar a funcionalidade de LOGS, utilizando o Logback, url: https://logback.qos.ch/
 
