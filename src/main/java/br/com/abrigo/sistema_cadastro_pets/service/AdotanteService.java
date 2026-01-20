@@ -25,7 +25,7 @@ public class AdotanteService {
     private ViaCepClient viaCepClient;
 
     public Adotante cadastrarAdotante(AdotanteCadastroDTO adotanteCadastroDTO) throws Exception {
-        log.info("Iniciando cadastro de adotante");
+        log.info("Iniciando cadastro de adotante " + adotanteCadastroDTO.getNome());
         try {
             adotanteExiste(adotanteCadastroDTO.getNome());
             Endereco endereco = enderecoExiste(adotanteCadastroDTO.getEndereco());

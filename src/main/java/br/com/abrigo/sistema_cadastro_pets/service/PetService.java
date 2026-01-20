@@ -19,7 +19,7 @@ public class PetService {
     private PetRepository petRepository;
 
     public Pet cadastrarPet(PetCadastroDTO petCadastroDTO) {
-        log.info("Iniciando cadastro de pet");
+        log.info("Iniciando cadastro de pet " + petCadastroDTO.getNome());
         try {
             String nomeFormatado = petCadastroDTO.getNome().toLowerCase();
             Pet exists = this.petRepository.findByNome(nomeFormatado);

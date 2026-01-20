@@ -1,0 +1,256 @@
+{
+  "info": {
+    "_postman_id": "b664fcaa-21a0-4082-9c4e-60c7516d4438",
+    "name": "Sistema Cadastro de Pets",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51519612",
+    "_collection_link": "https://go.postman.co/collection/51519612-b664fcaa-21a0-4082-9c4e-60c7516d4438?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Criar Adotante",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n          \"nome\": \"João Silva\",\n          \"email\": \"joao@teste.com\",\n          \"telefone\": \"21999999999\",\n           \"endereco\": {\n           \"numero\": \"1000\",\n           \"cep\": \"24342738\"\n          }\n         }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{localhost}}/adotantes/",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "adotantes",
+            ""
+          ]
+        },
+        "description": "Generated from cURL: curl -X POST http://localhost:8080/adotantes/      -H \"Content-Type: application/json\"      -d '{\n          \"nome\": \"João Silva\",\n          \"email\": \"joao@teste.com\",\n          \"telefone\": \"21999999999\",\n           \"endereco\": {\n           \"numero\": \"1000\",\n           \"cep\": \"24342738\"\n          }\n         }'"
+      },
+      "response": []
+    },
+    {
+      "name": "CREATE Copy",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nome\": \"João Silva\",\n    \"email\": \"joao@teste.com\",\n    \"telefone\": \"21999999999\",\n    \"endereco\": {\n        \"numero\": \"1000\",\n        \"cep\": \"24342738\"\n    }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "/adotantes/",
+          "path": [
+            "adotantes",
+            ""
+          ]
+        },
+        "description": "Generated from cURL: curl -X POST http://localhost:8080/adotantes/      -H \"Content-Type: application/json\"      -d '{\n          \"nome\": \"João Silva\",\n          \"email\": \"joao@teste.com\",\n          \"telefone\": \"21999999999\",\n           \"endereco\": {\n           \"numero\": \"1000\",\n           \"cep\": \"24342738\"\n          }\n         }'"
+      },
+      "response": []
+    },
+    {
+      "name": "Criar Pet",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nome\": \"Rex\",\r\n    \"idade\": 3.5,\r\n    \"sexoPet\": \"MACHO\",\r\n    \"tipoPet\": \"CACHORRO\",\r\n    \"peso\": 12.4,\r\n    \"raca\": \"Golden Retriever\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{localhost}}/pets/",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "pets",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar por ID",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nome\": \"Rex\",\r\n    \"idade\": 3.5,\r\n    \"sexoPet\": \"MACHO\",\r\n    \"tipoPet\": \"CACHORRO\",\r\n    \"peso\": 12.4,\r\n    \"raca\": \"Golden Retriever\"\r\n}"
+        },
+        "url": {
+          "raw": "{{localhost}}/pets/1",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "pets",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Busca por Nome",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{localhost}}/pets/nome/{nome}",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "pets",
+            "nome",
+            "{nome}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Busca dinâmica",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{localhost}}/pets/busca",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "pets",
+            "busca"
+          ],
+          "query": [
+            {
+              "key": "nome",
+              "value": "Zaya",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "tipo",
+              "value": "CACHORRO",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "raca",
+              "value": "Shih Tzu",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar todos os pets",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{localhost}}/pets/all",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "pets",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Atualizar pet",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nome\": \"Maximus\",\r\n    \"idade\": 4.0,\r\n    \"sexoPet\": \"MACHO\",\r\n    \"tipoPet\": \"CACHORRO\",\r\n    \"peso\": 15.5,\r\n    \"raca\": \"Labrador\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{localhost}}/pets/",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "pets",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Deletar pet",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nome\": \"Maximus\",\r\n    \"idade\": 4.0,\r\n    \"sexoPet\": \"MACHO\",\r\n    \"tipoPet\": \"CACHORRO\",\r\n    \"peso\": 15.5,\r\n    \"raca\": \"Labrador\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{localhost}}/pets/1",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "pets",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
