@@ -8,9 +8,10 @@ import br.com.abrigo.sistema_cadastro_pets.model.Adotante;
 import br.com.abrigo.sistema_cadastro_pets.model.Endereco;
 import br.com.abrigo.sistema_cadastro_pets.repository.AdotanteRepository;
 import br.com.abrigo.sistema_cadastro_pets.repository.EnderecoRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+@Slf4j
 @Service
 public class AdotanteService {
 
@@ -24,12 +25,18 @@ public class AdotanteService {
     private ViaCepClient viaCepClient;
 
     public Adotante cadastrarAdotante(AdotanteCadastroDTO adotanteCadastroDTO) throws Exception {
-        adotanteExiste(adotanteCadastroDTO.getNome());
-        Endereco endereco = enderecoExiste(adotanteCadastroDTO.getEndereco());
-        Adotante adotante = adotanteMapper(adotanteCadastroDTO);
-        adotante.setEndereco(endereco);
-        return adotanteRepository.save(adotante);
-    }
+        log.info("Iniciando cadastro de adotante " + adotanteCadastroDTO.getNome());
+        try {
+            adotanteExiste(adotanteCadastroDTO.getNome());
+            Endereco endereco = enderecoExiste(adotanteCadastroDTO.getEndereco());
+            Adotante adotante = adotanteMapper(adotanteCadastroDTO);
+            adotante.setEndereco(endereco);
+            return adotanteRepository.save(adotante);
+        } catch (Exception e) {
+            log.error("Erro ao cadastrar novo adotante");
+            throw e;
+        }
+}
 
     private Adotante adotanteExiste(String nome) throws Exception {
         Adotante exists = adotanteRepository.findByNome(nome);
