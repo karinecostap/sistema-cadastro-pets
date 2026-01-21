@@ -1,7 +1,6 @@
 package br.com.abrigo.sistema_cadastro_pets.controller;
-import br.com.abrigo.sistema_cadastro_pets.client.ViaCepClient;
+
 import br.com.abrigo.sistema_cadastro_pets.dto.AdotanteCadastroDTO;
-import br.com.abrigo.sistema_cadastro_pets.dto.ViaCepDTO;
 import br.com.abrigo.sistema_cadastro_pets.service.AdotanteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +22,9 @@ public class AdotanteController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void>delete(@PathVariable Integer id){
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
         adotanteService.deletarAdotante(id);
         return ResponseEntity.noContent().build();
     }
